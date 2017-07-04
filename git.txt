@@ -1,5 +1,30 @@
-git is a distributed version control system
-git is free software distributed under the GPL
-git has a mutable index called stage
-git tracks changs of files
-creating a new branch is quick & simple
+git config --global user.name "qin dong"			//全局配置，用户名
+git config --global user.email "451880559@qq.com"	//全局配置，邮箱
+mkdir learngit										//新建文件夹，learngit
+cd learngit											//进入文件夹 learngit
+pwd													//显示当前所在位置
+git init											//将当前位置设置为git仓库，并初始化
+git add git.txt										//将工作区文件添加至暂存区内
+git commit -m "first test"							//将暂存区中的内容提交至版本库中
+git status											//查看当前版本库的状态
+git log												//查看当前版本库的日志信息
+git diff git.txt									//查看文件git.txt与前一版本的区别
+git log --pretty=oneline							//查看日志信息，并格式化为单行显示
+git reset --hard HEAD^								//将当前版本库的位置回退到前一版本
+git reflog											//查看操作日志，某一次操作时刻的文件id号用来回退操作
+git checkout -- git.txt								//检出版本库的文件至工作区，并覆盖工作区
+git reset HEAD git.txt 								//既可以回退版本，又可以将暂存区回退工作区
+git rm git.txt 										//版本库中删除文件，工作区中文件同时删除
+git commit -m "remove file"							//删除文件需要将暂存区中的删除操作提交
+ssh-keygen -t rsa -C "451880559@qq.com"				//生成ssh秘钥对，在当前目录隐藏文件.ssh中
+git remote add origin git@github.com:GitHubQinDong/xxx.git
+													//将远程仓库添加到本地仓库中远程仓库列表中
+git push -u origin master							//将master主分支库内容更新到远程库中，第一次需要-u
+git clone git@github.com:GitHubQinDong/gitskills.git
+													//将github远程仓库中的内容克隆至本地仓库的当前位置
+git checkout -b dev		//检出当前版本库至分支dev，相当于 git branch dev   git checkout dev
+git commit -m "d"		//当前分支dev下提交，提交信息为d
+git checkout master		//检出master主分支,使当前指针HEAD指向master主分支
+git merge dev			//将主分支master与分支dev融合，若有冲突需要解决冲突
+git branch -d dev 		//删除分支dev
+git log --graph --pretty=oneline --abbrev-commit	//查看日志信息，图表方式，单行显示，缩写提交号
